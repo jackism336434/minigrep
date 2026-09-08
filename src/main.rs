@@ -6,7 +6,10 @@ fn main() {
         process::exit(1);
     });
 
-    run(config);
+    if let Err(e) = run(config) {
+        println!("Application error: {e}");
+        process::exit(1);
+    }
 }
 
 struct Config {
@@ -24,7 +27,8 @@ impl Config {
     }
 }
 
-fn run(config: Config) {
-    let contents = fs::read_to_string(config.file_path).expect("No such file or directory");
+fn run(config: Config) -> Result<(), Box<dyn Error>> {
+    let contents = fs::read_to_string(config.file_path)?;
     println!("content:\n{contents}");
+    Ok(())
 }
