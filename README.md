@@ -87,12 +87,7 @@ cargo run -- nobody src/example.txt
 └── README.md
 ```
 
-核心 API：
 
-- `search(query, contents)`：大小写敏感搜索
-- `search_case_insensitive(query, contents)`：大小写不敏感搜索
-
-两个函数都会返回匹配行的字符串切片，不会复制原始文本内容。
 
 ## 测试
 
@@ -108,6 +103,4 @@ cargo test
 - 大小写敏感匹配
 - 大小写不敏感匹配
 
-## 许可证
 
-当前项目未声明许可证。
